@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#090012" />
+  <title>RJ Sha'Ma • 18th Birthday Special</title>
+  <link rel="icon" href="assets/icon-rjs.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="loader" class="loader-screen">
+    <div class="loader-orbit"><span></span><span></span><span></span></div>
+    <div class="loader-brand">RJS'</div>
+    <div class="loader-title">Preparing a little magic…</div>
+    <div class="loader-bar"><i></i></div>
+  </div>
+
+  <div id="stars"></div>
+  <div class="moon"></div>
+  <div class="moon-glow"></div>
+  <div id="confetti"></div>
+
+  <header class="topbar hidden" id="topbar">
+    <div class="brand"><span>RJS'</span><small>18</small></div>
+    <div class="progress-wrap"><div id="progress"></div></div>
+    <button class="music-btn" id="musicBtn" title="Toggle music">♫</button>
+  </header>
+
+  <main id="app" class="hidden">
+    <section class="gate screen active" data-section="0">
+      <div class="glass gate-card">
+        <div class="mini-logo">RJS'</div>
+        <div class="cake-emoji">🎂</div>
+        <p class="eyebrow">A tiny surprise for</p>
+        <h1 data-bind="name">Radiyatul Jannat Shama'</h1>
+        <h3 class="sub">18th Birthday • November 09, 2008</h3>
+        <div class="lock-icon">🔐</div>
+        <p class="hint">Some things are worth unlocking.</p>
+        <div class="password-row">
+          <input id="passwordInput" type="password" inputmode="numeric" placeholder="Enter the secret password" autocomplete="off" />
+          <button class="primary" id="passwordBtn">Unlock</button>
+        </div>
+        <div id="passwordError" class="error"></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="1">
+      <div class="glass center-card">
+        <span class="eyebrow">Before we begin</span>
+        <h2>Wear your Sunglass🕶️ </h2>
+        <p>Because this birthday is about to get dangerously bright.</p>
+        <button class="primary" id="sunglassBtn">I'm Ready →</button>
+        <div id="cameraFx" class="camera-fx"><div class="lens"></div><div class="flash"></div><div class="shutter">📸</div></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="2">
+      <div class="glass center-card birthday-hero">
+        <span class="eyebrow">Today is different</span>
+        <h2>It's your birthday! 🎉</h2>
+        <p>Not just another day. It's the day <b data-bind="shortName">RJ Sha'Ma</b> officially becomes 18.</p>
+        <button class="primary" data-next>Let's Go ✨</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="3">
+      <div class="glass center-card reveal-card">
+        <span class="eyebrow">Chapter 01</span>
+        <h2>Have a look at it 👀</h2>
+        <div class="rounding"><span>18</span></div>
+        <p>Take a breath. Smile. The surprise is only getting started.</p>
+        <button class="primary" data-next>Next →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="4">
+      <div class="glass center-card">
+        <span class="eyebrow">One tiny question</span>
+        <h2>Do you want to continue? 💜</h2>
+        <p>Choose carefully. One button is suspicious.</p>
+        <div class="yes-no"><button class="primary" id="yesBtn">Yes💖</button><button class="danger" id="noBtn">No❌</button></div>
+        <div id="noMessage" class="funny"></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="5">
+      <div class="glass center-card wish-card">
+        <span class="eyebrow">A simple wish</span>
+        <h2>Happy 18th Birthday, <span data-bind="shortName">RJ Sha'Ma</span>! 💫</h2>
+        <p>May your new chapter be full of loud laughs, quiet peace, beautiful people and memories you never want to delete.</p>
+        <div class="signature">— may allah bless you.!</div>
+        <button class="primary" data-next>Let's Celebrate Birthday 🎊</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="6">
+      <div class="glass center-card">
+        <span class="eyebrow">Chapter 02</span>
+        <h2>Make a wish ✨</h2>
+        <p class="bigline">You are now <b>18 years </b>.</p>
+        <p>Close your eyes for a second and make one secret wish.</p>
+        <div class="wish-orb">🌙</div>
+        <button class="primary" data-next>Continue to Cake →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="7">
+      <div class="glass center-card cake-card">
+        <span class="eyebrow">Chapter 03</span>
+        <h2>Cut the Cake 🎂</h2>
+        <p>Special cake for a special 18. Blow the candles one by one.</p>
+        <div id="candles" class="candles"></div>
+        <div class="cake"><div class="icing">18</div><div class="cake-body"></div><div class="plate"></div></div>
+        <button class="primary" id="blowBtn">Blow the 18 candles 💨</button>
+        <button class="primary hidden" id="cutCakeBtn">Cut the Cake 🔪✨</button>
+        <div id="cakeStatus" class="status"></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="8">
+      <div class="glass quiz-card">
+        <span class="eyebrow">Chapter 04</span>
+        <h2>Birthday Quiz 🧠</h2>
+        <div class="quiz" id="quiz">
+          <div class="question active" data-q="0"><p>How well do you know yourself — which word fits this birthday best?</p><div class="answers"><button data-correct="true">Iconic ✨</button><button>Ordinary</button><button>Sleepy</button></div></div>
+          <div class="question" data-q="1"><p>Why does the website feel like this?</p><div class="answers"><button>Because CSS has feelings</button><button data-correct="true">Because your birthday deserves it 💜</button><button>Because the moon demanded it</button></div></div>
+          <div class="question" data-q="2"><p>Breaking news! 🚨</p><div class="news">Scientists confirm: <b>RJ Sha'Ma</b> is officially <strong>100% iconic</strong>, <strong>200% adorable</strong>, and <strong>300% unique</strong>. Experts are still recovering.</div><button class="primary" data-next>Accept the evidence →</button></div>
+        </div>
+        <div id="quizFeedback" class="status"></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="9">
+      <div class="glass center-card countdown-card">
+        <span class="eyebrow">Chapter 05</span>
+        <h2>The countdown is ready for Next.! ⏳</h2>
+        <div id="countdown" class="countdown">5</div>
+        <p id="countdownText">Hold on… magic loading.</p>
+        <button class="primary hidden" id="countdownNext">Next →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="10">
+      <div class="glass wide-card">
+        <span class="eyebrow">Chapter 06</span>
+        <h2>View some memories of your old 📸</h2>
+        <p>Six little windows into moments worth keeping.</p>
+        <div class="memory-grid" id="memoryGrid"></div>
+        <button class="primary" data-next>Next Memory →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="11">
+      <div class="glass center-card">
+        <span class="eyebrow">A message for you</span>
+        <h2>Birthday message 💌</h2>
+        <p>There is a message hiding inside.</p>
+        <button class="primary" id="openMessage">Click to open the message</button>
+        <div id="messageModal" class="modal hidden"><div class="modal-box"><button class="modal-close" id="closeMessage">×</button><div class="letter">Dear <b data-bind="shortName">RJ Sha'Ma</b>,<br><br>18 is not the finish line. It's your first big “hello” to a wider world. Keep your heart soft, your standards high, your laughter loud, and your dreams a little unreasonable. 💜<br><br>Happy Birthday. Make this year unforgettable.</div><button class="primary" id="messageNext">Next →</button></div></div>
+      </div>
+    </section>
+
+    <section class="screen" data-section="12">
+      <div class="glass center-card balloon-card">
+        <span class="eyebrow">Chapter 07</span>
+        <h2>18 balloons for 18 years 🎈</h2>
+        <p>Click the box and let them rise.</p>
+        <button class="primary" id="balloonBtn">Pop 18 Balloons 🎈</button>
+        <div id="balloonStage" class="balloon-stage"></div>
+        <button class="primary hidden" id="balloonNext" data-next>Next →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="13">
+      <div class="glass wide-card">
+        <span class="eyebrow">Chapter 08</span>
+        <h2>Match the memories 🧩</h2>
+        <p>Find the matching six images. You can replace the images later.</p>
+        <div class="match-grid" id="matchGrid"></div>
+        <div id="matchStatus" class="status">Matches: 0 / 6</div>
+        <button class="primary hidden" id="matchNext" data-next>Next →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="14">
+      <div class="glass center-card voice-card">
+        <span class="eyebrow">Chapter 09</span>
+        <h2>Your voice message is here 🎙️</h2>
+        <div class="voice-orb" id="voiceOrb">🎙️</div>
+        <p>Tap to listen. It's about 9 seconds.</p>
+        <button class="primary" id="voiceBtn">Play Voice Message</button>
+        <div id="voiceText" class="voice-text"></div>
+        <button class="primary hidden" id="voiceNext" data-next>Next →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="15">
+      <div class="glass center-card unique-card">
+        <span class="eyebrow">Chapter 10</span>
+        <h2>A tiny midnight universe 🌙</h2>
+        <div class="sky-window"><div class="shooting-star"></div><div class="tiny-moon">☾</div><div class="wish-star">★</div></div>
+        <p>Some people collect stars. Tonight, the stars are collecting memories of you.</p>
+        <button class="primary" data-next>Keep Going →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="16">
+      <div class="glass wide-card">
+        <span class="eyebrow">Chapter 11</span>
+        <h2>Photo memories, but different ✨</h2>
+        <p>Six photos with a little parallax, tilt and zoom.</p>
+        <div class="photo-wall" id="photoWall"></div>
+        <div class="video-gallery" id="videoGallery"></div>
+        <button class="primary" data-next>Before we close… →</button>
+      </div>
+    </section>
+
+    <section class="screen" data-section="17">
+      <div class="glass center-card ending-card">
+        <span class="eyebrow">Final Chapter</span>
+        <h2>How was your surprise? ⭐</h2>
+        <p>Rate the little world made for <b data-bind="shortName">RJ Sha'Ma</b>.</p>
+        <div class="rating-row" id="ratingRow"><button data-rating="5">★</button><button data-rating="4">★</button><button data-rating="3">★</button></div>
+        <div id="ratingLabel">Pick your rating</div>
+        <div class="score-row"><button data-score="10">10</button><button data-score="9">9</button><button data-score="8">8</button></div>
+        <textarea id="replyBox" placeholder="Write a reply message…"></textarea>
+        <button class="primary" id="replyBtn">Send Review 💌</button>
+        <div id="reviewDone" class="review-done"></div>
+        <button class="secondary hidden" id="replayBtn">↻ Replay to Surprise.!</button>
+        <p class="footer-note">RJS' • November 09 • 18th Birthday Special</p>
+      </div>
+    </section>
+  </main>
+
+  <audio id="bgAudio" loop preload="auto" src="assets/birthday-ambience.wav"></audio>
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
